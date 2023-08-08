@@ -1,10 +1,10 @@
 "use client";
 
-import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
+import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import toast from "react-hot-toast";
 import { useState } from "react";
-import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
+import axios from "axios";
 
 import {
   DropdownMenu,
@@ -13,13 +13,12 @@ import {
   DropdownMenuLabel,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import { SizeColumn } from "./columns";
 import { Button } from "@/components/ui/button";
 import { AlertModal } from "@/components/modals/alert-modal";
 
-import { CategoryColumn } from "./columns";
-
 type CellActionProps = {
-  data: CategoryColumn;
+  data: SizeColumn;
 };
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
@@ -31,19 +30,17 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success("Category ID Copied to Clipboard");
+    toast.success("Size ID Copied to Clipboard");
   };
 
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/${params.storeId}/categories/${data.id}`);
+      await axios.delete(`/api/${params.storeId}/sizes/${data.id}`);
       router.refresh();
-      toast.success("Category deleted.");
+      toast.success("Size deleted.");
     } catch (error) {
-      toast.error(
-        "Make sure you removed all products using this category first before deleting."
-      );
+      toast.error("Make sure you removed all products using this size first.");
     } finally {
       setLoading(false);
       setOpen(false);
@@ -71,9 +68,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
             Copy ID
           </DropdownMenuItem>
           <DropdownMenuItem
-            onClick={() =>
-              router.push(`/${params.storeId}/categories/${data.id}`)
-            }
+            onClick={() => router.push(`/${params.storeId}/sizes/${data.id}`)}
           >
             <Edit className="mr-2 h-4 w-4" />
             Update
