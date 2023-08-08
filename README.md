@@ -22,8 +22,8 @@ This is my interpretation of an e-commerce website + dashboard build with everyt
 ## Features to be implemented
 
 - [x] Authentication with **Clerk**
-- [x] Photo uploads with **uploadthing**
-- [x] ORM using **Prisma ORM**
+- [x] Photo uploads with **Cloudinary**
+- [x] ORM using **Prisma**
 - [x] Database on **PlanetScale**
 - [x] Validation with **Zod**
 - [ ] Seller and customer workflows
@@ -58,10 +58,16 @@ cp .env.example .env
 npm run dev
 ```
 
-5. Push the database schema
+5. Generate the database schema
 
 ```bash
 npx prisma generate
+```
+
+6. Push the database changes
+
+```bash
+npx prisma db push
 ```
 
 ## How do I deploy this?
