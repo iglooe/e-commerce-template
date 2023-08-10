@@ -1,19 +1,19 @@
 import { format } from "date-fns";
+
 import prismadb from "@/lib/prismadb";
 import { formatter } from "@/lib/utils";
-import { ProductClient } from "./components/client";
+
+import { ProductsClient } from "./components/client";
 import { ProductColumn } from "./components/columns";
 
 const ProductsPage = async ({
-  params,
+  params
 }: {
-  params: {
-    storeId: string;
-  };
+  params: { storeId: string }
 }) => {
   const products = await prismadb.product.findMany({
     where: {
-      storeId: params.storeId,
+      storeId: params.storeId
     },
     include: {
       category: true,
@@ -21,26 +21,26 @@ const ProductsPage = async ({
       color: true,
     },
     orderBy: {
-      createdAt: "desc",
-    },
+      createdAt: 'desc'
+    }
   });
 
-  const formattedProducts: ProductColumn[] = products.map((b) => ({
-    id: b.id,
-    name: b.name,
-    isFeatured: b.isFeatured,
-    isArchived: b.isArchived,
-    price: formatter.format(b.price.toNumber()),
-    category: b.category.name,
-    size: b.size.name,
-    color: b.color.value,
-    createdAt: format(b.createdAt, "MMMM do, yyyy"),
+  const formattedProducts: ProductColumn[] = products.map((item) => ({
+    id: item.id,
+    name: item.name,
+    isFeatured: item.isFeatured,
+    isArchived: item.isArchived,
+    price: formatter.format(item.price.toNumber()),
+    category: item.category.name,
+    size: item.size.name,
+    color: item.color.value,
+    createdAt: format(item.createdAt, 'MMMM do, yyyy'),
   }));
 
   return (
     <div className="flex-col">
       <div className="flex-1 space-y-4 p-8 pt-6">
-        <ProductClient data={formattedProducts} />
+        <ProductsClient data={formattedProducts} />
       </div>
     </div>
   );

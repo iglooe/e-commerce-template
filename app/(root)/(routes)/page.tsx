@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect } from "react";
-import { useStoreModal } from "@/hooks/use-store-modal";
 
-// this modal shows up on the root page and will show a modal if there
-// is no store created yet
+import { useEffect } from "react";
+import { useParams } from "next/navigation";
+
+import { useStoreModal } from "@/hooks/use-store-modal";
 
 const SetupPage = () => {
   const onOpen = useStoreModal((state) => state.onOpen);
@@ -17,5 +17,5 @@ const SetupPage = () => {
 
   return null;
 };
-
+ 
 export default SetupPage;

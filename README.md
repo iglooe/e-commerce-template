@@ -1,4 +1,4 @@
-# [E-Commerce Dashboard](./public/dashboard-screenshot.png)
+# [[E-Commerce Dashboard](./public/dashboard-screenshot.png)]
 
 This is my interpretation of an e-commerce website + dashboard build with everything new in Next.js 13.
 
