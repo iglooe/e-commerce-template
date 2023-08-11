@@ -19,18 +19,18 @@ This is my interpretation of an e-commerce website + dashboard build with everyt
 - **Payments infrastructure:** [Stripe](https://stripe.com)
 - **Photo:** [Cloudinary](https://cloudinary.com/)
 
-## Features to be implemented
+## Features implemented
 
 - [x] Authentication with **Clerk**
 - [x] Photo uploads with **Cloudinary**
 - [x] ORM using **Prisma**
 - [x] Database on **PlanetScale**
 - [x] Validation with **Zod**
-- [ ] Seller and customer workflows
-- [ ] User subscriptions with **Stripe**
-- [ ] Storefront with products, categories, and subcategories
-- [ ] Checkout with **Stripe Checkout**
-- [ ] Admin dashboard with stores, products, orders, subscriptions, and payments
+- [x] Seller and customer workflows
+- [x] User subscriptions with **Stripe**
+- [x] Storefront with products, categories, and subcategories
+- [x] Checkout with **Stripe Checkout**
+- [x] Admin dashboard with stores, products, orders, subscriptions, and payments
 
 ## Running Locally
 
