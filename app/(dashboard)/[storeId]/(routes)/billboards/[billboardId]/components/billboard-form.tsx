@@ -32,9 +32,9 @@ const formSchema = z.object({
 
 type BillboardFormValues = z.infer<typeof formSchema>;
 
-interface BillboardFormProps {
+type BillboardFormProps = {
   initialData: Billboard | null;
-}
+};
 
 export const BillboardForm: React.FC<BillboardFormProps> = ({
   initialData,
