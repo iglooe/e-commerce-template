@@ -2,7 +2,7 @@
 
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
 
-interface OverviewProps {
+type OverviewProps = {
   data: any[]
 };
 

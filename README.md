@@ -29,8 +29,8 @@ This is my interpretation of an e-commerce website + dashboard build with everyt
 - [x] Seller and customer workflows
 - [x] User subscriptions with **Stripe**
 - [x] Storefront with products, categories, and subcategories
-- [x] Checkout with **Stripe Checkout**
 - [x] Admin dashboard with stores, products, orders, subscriptions, and payments
+- [ ] Checkout with **Stripe Checkout**
 
 ## Running Locally
 
